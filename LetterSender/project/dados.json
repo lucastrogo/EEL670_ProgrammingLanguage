@@ -1,0 +1,19 @@
+{
+    "User": [
+        {
+            "UserName": " ",
+            "Password": " ",
+            "DRE": " "
+        },
+        {
+            "UserName": "teste",
+            "Password": "teste",
+            "DRE": "122168184"
+        },
+        {
+            "UserName": "teste",
+            "Password": "teste",
+            "DRE": "122168184"
+        }
+    ]
+}

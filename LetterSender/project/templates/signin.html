@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, max-scale=1.0">
+        <title>Envio de Cartas</title>
+        <link rel="stylesheet" type="text/css" href="./static/signin.css">
+</head>
+<body>
+        <header>
+                <h1 class="title">Sistema de envio de cartas</h1>
+                <h2 class="description">Insira suas informações para login</h2>
+        </header>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="flash">
+            {{ messages[0] }}. Vá para a <a href="{{ url_for('auth.login') }}">página de login</a>.
+        </div>
+        {% endif %}
+        {% endwith %}
+        <form action="/signup" method="post">
+                <input class="fill" type="text" name="UserName" placeholder="Nome do usuário"><br>
+                <input class="fill" type="password" name="Password" placeholder="Senha"><br>
+                <input class="botao" type="submit" value="SignUp">
+        </form>
+</body>
+</html>
