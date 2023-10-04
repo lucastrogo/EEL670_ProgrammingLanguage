@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, max-scale=1.0">
+        <title>Envio de cartas</title>
+        <link rel="stylesheet" type="text/css" href="./static/messagesent.css">
+</head>
+<body>
+        <header>
+                <h1 class="titulo">Sistema de envio de cartas</h1>
+                <h2 class="titulo2">Sua carta foi salva!</h1>
+        </header>
+	<div>
+        	<button class="botao" onclick="window.location.href='{{url_for('messagesent')}}'">Enviar outra carta</button>
+	</div>
+</body>

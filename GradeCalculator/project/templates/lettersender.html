@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, max-scale=1.0">
+        <title>Envio de Cartas</title>
+        <link rel="stylesheet" type="text/css" href="./static/lettersender.css">
+</head>
+<body>
+        <header>
+                <h1 class="title">Sistema de envio de cartas</h1>
+                <h2 class="description">Insira as informações para envio da carta</h2>
+        </header>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="flash">
+            {{ messages[0] }}. Vá para a <a href="{{ url_for('auth.login') }}">página de login</a>.
+        </div>
+        {% endif %}
+        {% endwith %}
+        <form action="/letter" method="post">
+                <input class="fill" type="text" name="Remetente" placeholder="Remetente"><br>
+                <input class="fill" type="text" name="Destinatario" placeholder="Destinatario"><br>
+                <input class="fill" type="text" name="Mensagem" placeholder="Mensagem"><br>
+                <input class="botao" type="submit" value="Enviar">
+        </form>
+</body>
+</html>
