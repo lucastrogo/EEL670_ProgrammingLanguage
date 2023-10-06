@@ -43,7 +43,7 @@ def signup():
         dre = request.form.get("DRE")
         senha = request.form.get("Password")
         insert_aluno(dre, nome, senha)
-        session['dre'] = dre
+        return redirect('/signin')
     return render_template("signup.html")
 
 @app.route("/grades", methods = ['GET', 'POST'])
@@ -65,13 +65,16 @@ def grades():
         if r:
             t1, t2, l1, l2, l3, l4, l5 = r[0]
             print(t1, t2, l1, l2, l3, l4, l5)
-            grade = ((t1 + t2) * 0.8) + (((l1 + l2 + l3 + l4 + l5) / 5) * 0.2)
+            grade = ((t1 + t2) / 2 * 0.8) + (((l1 + l2 + l3 + l4 + l5) / 5) * 0.2)
             if grade >= 7:
                 print(f"Parabéns, você foi aprovado com média {grade}")
+                c.execute('INSERT INTO grades (np) VALUES (?)', (grade,))
             elif 3 <= grade < 7:
                 print(f"Você está de pf com média {grade}")
+                c.execute('INSERT INTO grades (np) VALUES (?)', (grade,))
             else:
                 print(f"Você foi reprovado com média {grade}")
+                c.execute('INSERT INTO grades (np) VALUES (?)', (grade,))
         else:
             print(f"Nenhum registro encontrado para o DRE {dre}")
     return render_template("grades.html")

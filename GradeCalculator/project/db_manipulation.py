@@ -56,6 +56,7 @@ def insert_grade(dre, t1, t2, l1, l2, l3, l4, l5):
 
     conn = sqlite3.connect('EEL670_ProgrammingLanguage/GradeCalculator/project/grade.db')
     c = conn.cursor()
+    c.execute('SELECT dre FROM alunos WHERE dre=?', (dre,))
 
     c.execute('''
             INSERT INTO grades (dre, t1, t2, l1, l2, l3, l4, l5)
