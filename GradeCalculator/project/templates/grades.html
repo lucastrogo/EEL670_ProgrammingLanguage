@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, max-scale=1.0">
+        <title>Calculo de Notas</title>
+        <link rel="stylesheet" type="text/css" href="./static/grades.css">
+</head>
+<body>
+        <header>
+                <h1 class="title">Sistema de calculo de nota</h1>
+                <h2 class="description">Insira as informações para calculo da nota</h2>
+        </header>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="flash">
+            {{ messages[0] }}. Vá para a <a href="{{ url_for('auth.login') }}">página de login</a>.
+        </div>
+        {% endif %}
+        {% endwith %}
+        <form action="/grades" method="post">
+                <input class="fill" type="text" name="Trabalho1" placeholder="Trabalho1"><br>
+                <input class="fill" type="text" name="Trabalho2" placeholder="Trabalho2"><br>
+                <input class="fill" type="text" name="Lista1" placeholder="Lista1"><br>
+                <input class="fill" type="text" name="Lista2" placeholder="Lista2"><br>
+                <input class="fill" type="text" name="Lista3" placeholder="Lista3"><br>
+                <input class="fill" type="text" name="Lista4" placeholder="Lista4"><br>
+                <input class="fill" type="text" name="Lista5" placeholder="Lista5"><br>
+                <input class="botao" type="submit" value="Enviar">
+        </form>
+</body>
+</html>
